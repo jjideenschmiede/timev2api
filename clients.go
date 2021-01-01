@@ -17,6 +17,7 @@ type ClientDataReturn struct {
 	Rate string `json:"rate"`
 }
 
+// Get a list of all clients
 func Clients(domainkey, token string) (ClientsReturn, error) {
 
 	// Define client
