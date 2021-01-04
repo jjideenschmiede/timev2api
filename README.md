@@ -24,3 +24,11 @@ if err != nil {
     fmt.Println(err)
 }
 ```
+
+###Users
+```go
+users, err := timev2api.Users("domainkey", "apitoken")
+if err != nil {
+    fmt.Println(err)
+}
+```
