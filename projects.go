@@ -1,10 +1,6 @@
 package timev2api
 
-import (
-	"encoding/json"
-	"fmt"
-	"net/http"
-)
+import "encoding/json"
 
 // To save project data
 type ProjectsReturn struct {
@@ -19,34 +15,22 @@ type ProjectsDataReturn struct {
 // To get a list of all projects
 func Projects(domainkey, token string) (ProjectsReturn, error) {
 
-	// Define new client
-	client := &http.Client{}
-
-	// New http request
-	request, err := http.NewRequest("GET", fmt.Sprintf("https://%s.timev2.de/api/v1/projects", domainkey), nil)
-	if err != nil {
-		return ProjectsReturn{}, err
-	}
-
-	// Set header
-	request.Header.Set("authorization", token)
-
 	// Response to timev2
-	response, err := client.Do(request)
+	response, err := response(domainkey, token)
 	if err != nil {
 		return ProjectsReturn{}, err
 	}
 
-	// Save projects
+	// Save clients
 	var decode ProjectsReturn
 
 	// Decode json code in struct
-	err = json.NewDecoder(response.Body).Decode(&decode)
+	err = json.NewDecoder(response).Decode(&decode)
 	if err != nil {
 		return ProjectsReturn{}, err
 	}
 
-	// Return
+	// Return data
 	return decode, nil
 
 }
