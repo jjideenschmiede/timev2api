@@ -8,9 +8,10 @@ type ClientsReturn struct {
 }
 
 type ClientDataReturn struct {
-	Name string `json:"name"`
-	ID   string `json:"id"`
-	Rate string `json:"rate"`
+	Name    string `json:"name"`
+	ID      string `json:"id"`
+	Rate    string `json:"rate"`
+	SevDesk string `json:"sevdesk,omitempty"`
 }
 
 // Get a list of all clients
