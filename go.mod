@@ -1,3 +1,3 @@
-module github.com/jj-ideenschmiede/timev2api
+module github.com/jjideenschmiede/timev2api
 
 go 1.15
