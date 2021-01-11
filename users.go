@@ -19,7 +19,7 @@ type UserDataReturn struct {
 func Users(domainkey, token string) ([]UserDataReturn, error) {
 
 	// Response to timev2
-	response, err := response(domainkey, token)
+	response, err := response("users", domainkey, token)
 	if err != nil {
 		return nil, err
 	}

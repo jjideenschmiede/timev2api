@@ -18,7 +18,7 @@ type ClientDataReturn struct {
 func Clients(domainkey, token string) ([]ClientDataReturn, error) {
 
 	// Response to timev2
-	response, err := response(domainkey, token)
+	response, err := response("clients", domainkey, token)
 	if err != nil {
 		return nil, err
 	}

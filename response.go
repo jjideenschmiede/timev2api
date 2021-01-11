@@ -7,13 +7,13 @@ import (
 )
 
 // To response the data
-func response(domainkey, token string) (io.ReadCloser, error) {
+func response(key, domainkey, token string) (io.ReadCloser, error) {
 
 	// Define client
 	client := &http.Client{}
 
 	// New http request
-	request, err := http.NewRequest("GET", fmt.Sprintf("https://%s.timev2.de/api/v1/clients", domainkey), nil)
+	request, err := http.NewRequest("GET", fmt.Sprintf("https://%s.timev2.de/api/v1/%s", domainkey, key), nil)
 	if err != nil {
 		return nil, err
 	}

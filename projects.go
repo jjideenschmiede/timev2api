@@ -16,7 +16,7 @@ type ProjectsDataReturn struct {
 func Projects(domainkey, token string) ([]ProjectsDataReturn, error) {
 
 	// Response to timev2
-	response, err := response(domainkey, token)
+	response, err := response("projects", domainkey, token)
 	if err != nil {
 		return nil, err
 	}
