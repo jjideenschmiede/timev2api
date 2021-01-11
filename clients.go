@@ -15,12 +15,12 @@ type ClientDataReturn struct {
 }
 
 // Get a list of all clients
-func Clients(domainkey, token string) (ClientsReturn, error) {
+func Clients(domainkey, token string) ([]ClientDataReturn, error) {
 
 	// Response to timev2
 	response, err := response(domainkey, token)
 	if err != nil {
-		return ClientsReturn{}, err
+		return nil, err
 	}
 
 	// Save clients
@@ -29,10 +29,10 @@ func Clients(domainkey, token string) (ClientsReturn, error) {
 	// Decode json code in struct
 	err = json.NewDecoder(response).Decode(&decode)
 	if err != nil {
-		return ClientsReturn{}, err
+		return nil, err
 	}
 
 	// Return data
-	return decode, nil
+	return decode.Clients, nil
 
 }
