@@ -27,6 +27,9 @@ func response(key, domainkey, token string) (io.ReadCloser, error) {
 		return nil, err
 	}
 
+	// Defer response body
+	defer response.Body.Close()
+
 	// Return
 	return response.Body, nil
 
