@@ -19,13 +19,16 @@ func response(key, domainkey, token string) (io.ReadCloser, error) {
 	}
 
 	// Set header
-	request.Header.Set("authorization", token)
+	request.Header.Set("authetication", token)
 
 	// Response to timev2
 	response, err := client.Do(request)
 	if err != nil {
 		return nil, err
 	}
+
+	// Defer response body
+	defer response.Body.Close()
 
 	// Return
 	return response.Body, nil
