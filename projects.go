@@ -4,6 +4,7 @@ import "encoding/json"
 
 // To save project data
 type ProjectsReturn struct {
+	Total    int `json:"total"`
 	Projects []ProjectsDataReturn
 }
 

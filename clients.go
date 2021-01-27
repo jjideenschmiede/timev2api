@@ -4,6 +4,7 @@ import "encoding/json"
 
 // To save client data
 type ClientsReturn struct {
+	Total   int `json:"total"`
 	Clients []ClientDataReturn
 }
 

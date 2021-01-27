@@ -4,6 +4,7 @@ import "encoding/json"
 
 // To save user data
 type UsersReturn struct {
+	Total int              `json:"total"`
 	Users []UserDataReturn `json:"users"`
 }
 
