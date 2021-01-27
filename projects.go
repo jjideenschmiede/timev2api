@@ -14,12 +14,12 @@ type ProjectsDataReturn struct {
 }
 
 // To get a list of all projects
-func Projects(domainkey, token string) ([]ProjectsDataReturn, error) {
+func Projects(domainkey, token string) (ProjectsReturn, error) {
 
 	// Response to timev2
 	response, err := response("projects", domainkey, token)
 	if err != nil {
-		return nil, err
+		return ProjectsReturn{}, err
 	}
 
 	// Save clients
@@ -28,10 +28,10 @@ func Projects(domainkey, token string) ([]ProjectsDataReturn, error) {
 	// Decode json code in struct
 	err = json.NewDecoder(response).Decode(&decode)
 	if err != nil {
-		return nil, err
+		return ProjectsReturn{}, err
 	}
 
 	// Return data
-	return decode.Projects, nil
+	return decode, nil
 
 }
