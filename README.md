@@ -3,7 +3,7 @@ The easiest way to load customers or projects from your timev2.
 
 ## Install
 ```console
-go get github.com/jojojojonas/timev2api
+go get github.com/jjideenschmiede/timev2api
 ```
 
 ## How to use?
